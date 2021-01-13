@@ -12,7 +12,50 @@ port = int(os.environ.get("PORT", 5000))
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+
+    allAthletes = db.get_all_athletes()
+
+    athletes = []
+    for i in allAthletes:
+        a = {
+            'athleteID': i[0],
+            'firstName': i[1],
+            'lastName': i[2],
+            'email': i[3],
+            'phone': i[4]
+
+        }
+        athletes.append(a)
+        print(a, file=sys.stderr)
+
+
+    return render_template('home.html', athletes = athletes)
+
+@app.route('/checkin/<string:lastName>')
+def checkin(lastName):
+    allAthletes = db.get_athlete(lastName)
+
+    print(lastName, file=sys.stderr)
+    
+
+    athletes = []
+    for i in allAthletes:
+        a = {
+            'athleteID': i[0],
+            'firstName': i[1],
+            'lastName': i[2],
+            'email': i[3],
+            'phone': i[4]
+
+        }
+        athletes.append(a)
+
+    print(athletes, file=sys.stderr)
+
+    return render_template('checkin.html', athletes = athletes)
+
+
+
 
 
 if __name__ == '__main__':

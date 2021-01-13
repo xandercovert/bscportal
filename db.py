@@ -17,25 +17,25 @@ def connect():
 
 def get_athlete(athletelname):
     inputCommand = "SELECT athlete_id, fname, lname, email, cell FROM athletes WHERE lname = (%s) "
-    try:
-        conn = connect()
-        statement = conn.cursor(prepared=True)
-        statement.execute(inputCommand, (athletelname,))
-        rs = statement.fetchall()
-        statement.close()
-        conn.close()
+   
+    conn = connect()
+    statement = conn.cursor()
+    statement.execute(inputCommand, (athletelname,))
+    rs = statement.fetchall()
+    statement.close()
+    conn.close()
 
-        return rs
+    return rs
 
 def get_all_athletes():
-    inputCommand = "SELECT * FROM athletes"
-    try:
-        conn = connect()
-        statement = conn.cursor(prepared=True)
-        x = ()
-        statement.execute(inputCommand, (x,))
-        rs = statement.fetchall()
-        statement.close()
-        conn.close()
+    inputCommand = "SELECT athlete_id, fname, lname, email, cell FROM athletes"
+    
+    conn = connect()
+    statement = conn.cursor()
+    x = ()
+    statement.execute(inputCommand)
+    rs = statement.fetchall()
+    statement.close()
+    conn.close()
 
-        return rs
+    return rs

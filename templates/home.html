@@ -15,7 +15,12 @@
     </div>
 
     <hr class="mb-5">
+
+    {% for athlete in athletes %}
+    <p>{{ athlete.email }} || {{ athlete.lastName }}</p>
+    {% endfor %}
     
 </div>   
+
 
 {% endblock content %}
