@@ -3,10 +3,19 @@
 {% block content %}
 
 <div class="container">
-<h1> Welcome {{ athletes[0].lastName }} family! </h1>
+    <h1> Welcome {{ athletes[0].lastName }} family! </h1>
+    <br>
+    <h4>Submit each child's planned attendance for the week. This can be changed if you need to by re submitting the
+        form. If your child is not planning on attending,
+        you still must fill submit the form with no days selected so we know not to expect you.
+    </h4>
+
 </div>
+
+
+
 {% for athlete in athletes %}
-    <p>{{ athlete_display(athlete) }}</p>
+<p>{{ athlete_display(athlete) }}</p>
 {% endfor %}
 
 
