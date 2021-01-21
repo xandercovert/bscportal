@@ -1,11 +1,22 @@
 {% macro athlete_display(athlete) %}
 
 <br>
-
-<div class="container col-4 justify-content-center">
-    <div class="card sm-3">
-         <h1>Check-In {{ athlete.firstName }}</h1>
-    </div>
-  </div>
-
+<div class="container">
+	<div class="card">
+		<div class="w-100">
+			<div class="col">
+				<h1>{{ athlete.firstName }}</h1>
+			</div>
+			<div class="col-6">
+				<a href="{{ url_for('athleteCheck', id=athlete.athleteID) }}" class="btn">Click Me to Check In</a>
+			</div>
+			<div class="col-5">
+				{% if athlete.checkedin %}
+				<h3>Attendance Recorded!</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<br>
 {% endmacro %}

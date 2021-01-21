@@ -16,7 +16,7 @@ def connect():
     return database
 
 def get_athlete(athletelname):
-    inputCommand = "SELECT athlete_id, fname, lname, email, cell FROM athletes WHERE lname = (%s) "
+    inputCommand = "SELECT athlete_id, fname, lname, email, cell, checkedin FROM athletes WHERE lname = (%s) "
    
     conn = connect()
     statement = conn.cursor()
@@ -27,8 +27,20 @@ def get_athlete(athletelname):
 
     return rs
 
+def get_athlete_by_id(athletelname):
+    inputCommand = "SELECT athlete_id, fname, lname, email, cell, checkedin FROM athletes WHERE athlete_id = (%s) "
+   
+    conn = connect()
+    statement = conn.cursor()
+    statement.execute(inputCommand, (athletelname,))
+    rs = statement.fetchone()
+    statement.close()
+    conn.close()
+
+    return rs
+
 def get_all_athletes():
-    inputCommand = "SELECT athlete_id, fname, lname, email, cell FROM athletes"
+    inputCommand = "SELECT athlete_id, fname, lname, email, cell, saturday, sunday, wednesday, checkedin FROM athletes"
     
     conn = connect()
     statement = conn.cursor()
@@ -39,3 +51,27 @@ def get_all_athletes():
     conn.close()
 
     return rs
+
+def get_athlete_days(athletelname):
+    inputCommand = "SELECT saturday, sunday, wednesday FROM athletes WHERE athlete_id = (%s) "
+   
+    conn = connect()
+    statement = conn.cursor()
+    statement.execute(inputCommand, (athletelname,))
+    rs = statement.fetchone()
+    statement.close()
+    conn.close()
+
+    return rs
+
+def set_athlete_days(saturday, sunday, wednesday, checkedin, athletelname):
+    inputCommand = "UPDATE athletes SET saturday = %s, sunday = %s, wednesday = %s, checkedin = %s WHERE athlete_id = (%s) "
+   
+    conn = connect()
+    statement = conn.cursor()
+    statement.execute(inputCommand, (saturday, sunday, wednesday, checkedin, athletelname,))
+    conn.commit()
+    statement.close()
+    conn.close()
+
+    return True
