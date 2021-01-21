@@ -40,7 +40,7 @@ def get_athlete_by_id(athletelname):
     return rs
 
 def get_all_athletes():
-    inputCommand = "SELECT athlete_id, fname, lname, email, cell, checkedin FROM athletes"
+    inputCommand = "SELECT athlete_id, fname, lname, email, cell, saturday, sunday, wednesday, checkedin FROM athletes"
     
     conn = connect()
     statement = conn.cursor()
