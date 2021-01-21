@@ -128,6 +128,17 @@ def attending():
 
     return render_template('attending.html', athletes = athletes)
 
+@app.route('/admin')
+def admin():
+
+    return render_template('admin.html')
+
+@app.route('/admin/resetattendance')
+def resetAttendance():
+
+    db.reset_athlete_attendance()
+
+    return redirect(url_for('admin'))
 
     
 
