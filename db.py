@@ -75,3 +75,15 @@ def set_athlete_days(saturday, sunday, wednesday, checkedin, athletelname):
     conn.close()
 
     return True
+
+def reset_athlete_attendance():
+    inputCommand = "UPDATE athletes SET saturday = %s, sunday = %s, wednesday = %s, checkedin = %s "
+   
+    conn = connect()
+    statement = conn.cursor()
+    statement.execute(inputCommand, (0, 0, 0, 0,))
+    conn.commit()
+    statement.close()
+    conn.close()
+
+    return True
