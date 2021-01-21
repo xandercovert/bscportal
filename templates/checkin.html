@@ -4,7 +4,7 @@
 <form action="" method="post">
     <div class="container center_div">
         <div class="row d-flex justify-content-center">
-            <div class=".col-md-12">
+            <div class="col-sm-6">
                 <h1>Check in {{ athlete.firstName }}</h1>
                 <br><br>
                 <fieldset class="form-group">
@@ -21,8 +21,25 @@
                         {{ form.wednesday.label() }}<br>
                         {{ form.wednesday(class="form-check-input") }}<br>
                     </p>
-                    <p>By hitting submit you attest that {{ athlete.firstName }} has not been in close contact with anyone exposed to or positive with COVID-19 in the last 14 days.
-                        You attest that {{ athlete.firstName }} is not showing any symptoms.
+                    <p>
+                        By hitting submit you attest that {{ athlete.firstName }} has not been in close contact with anyone exposed to or positive with COVID-19 in the last 14 days.
+                    </p>
+
+                    <p>
+                        You attest that {{ athlete.firstName }} is not showing any of the following symptoms:
+                        <br>
+                        Fever
+                        <br>
+                        Cough
+                        <br>
+                        Sore Throat
+                        <br>
+                        Shortness of Breath
+                        <br>
+                    </p>
+
+                    <p>
+                        By hitting submit {{ athlete.firstName }} will be allowed to participate in practice, following all state, club, and team rules set in place.
                     </p>
 
                     <p>{{ form.submit(class="btn btn-primary btn-lg") }}</p>
