@@ -12,6 +12,7 @@ RUN pip install gunicorn
 RUN pip install textblob==0.15.1
 RUN python -m textblob.download_corpora
 RUN pip install ajax
+RUN pip install twilio
 
 
 #Bundling Source
