@@ -1,8 +1,24 @@
 {% extends 'head.html' %}
-{% from '_athlete.html' import athlete_display %s}
 {% block content %}
 
+<form action="" method="post">
+    <fieldset class="form-group">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.saturday.label() }}<br>
+            {{ form.saturday() }}<br>
+        </p>
+        <p>
+            {{ form.sunday.label() }}<br>
+            {{ form.sunday() }}<br>
+        </p>
+        <p>
+            {{ form.wednesday.label() }}<br>
+            {{ form.wednesday() }}<br>
+        </p>
+        <p>
 
-<h1> Welcome {{ athletes[0].lastName }} family! </h1>
-
+        <p>{{ form.submit(class="btn btn-primary btn-lg") }}</p>
+    </fieldset>
+</form>
 {% endblock content %}

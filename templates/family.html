@@ -1,0 +1,12 @@
+{% extends 'head.html' %}
+{% from '_athlete.html' import athlete_display %}
+{% block content %}
+
+<h1> Welcome {{ athletes[0].lastName }} family! </h1>
+
+{% for athlete in athletes %}
+    <p>{{ athlete_display(athlete) }}</p>
+{% endfor %}
+
+
+{% endblock content %}
