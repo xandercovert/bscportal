@@ -16,6 +16,10 @@
 
     <hr class="mb-5">
 
+    <a href="{{ url_for('attending') }}" class="btn">Attending Athlete Table</a>
+
+    <br>
+
     {% for athlete in athletes %}
     <a href="{{ url_for('family', lastName=athlete.lastName) }}" class="btn"> || {{ athlete.lastName }}</a>
     <br>
