@@ -1,9 +1,16 @@
 from twilio.rest import Client
+import os
+import sys
+
+# Set ENV variables from twilio.env
+os.system("source ./twilio.env")
 
 # Your Account SID from twilio.com/console
-account_sid = "AC46cb74ed3bd9bb509a2d6b378dc49542"
+account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
+print(account_sid, file=sys.stderr)
+
 # Your Auth Token from twilio.com/console
-auth_token  = "dd13d4535eb91011f9c96e83d5c917d0"
+auth_token  = os.environ.get('TWILIO_AUTH_TOKEN')
 
 client = Client(account_sid, auth_token)
 
