@@ -8,7 +8,7 @@ import sys
 def connect():
 
     database = mysql.connector.connect(user='ipopqe3ojfodhxqh',
-                                       password='nxyj26j0njuj44sx',
+                                       password='thsqkh5u8z0o4duk',
                                        host='z5zm8hebixwywy9d.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
                                        database='zjcv0ume6hjfv1ze'
                                        )
